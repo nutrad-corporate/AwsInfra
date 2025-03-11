@@ -1,4 +1,3 @@
-ShopifyAPI
 python-dotenv
 requests
 pymongo

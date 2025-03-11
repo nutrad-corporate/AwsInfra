@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query, HTTPException
+from fastapi import FastAPI, Query, HTTPException, Depends, HTTPException, status, Request
 import re
 import logging
 from infrastructure import create_infrastructure
@@ -6,7 +6,7 @@ from destroy_infrastructure import delete_infrastructure
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
-
+API_KEY = "2de52289-734f-4553-a96c-ab52c8009d33"
 app = FastAPI()
 
 CLIENT_STORE_PATTERN = re.compile(r"^[a-z][a-z0-9]+$")
@@ -18,8 +18,18 @@ def validate_client_store(client_store: str):
             detail="Invalid client_store. Must be lowercase alphanumeric, no special characters, and start with a letter."
         )
 
+
+def verify_api_key(request: Request):
+    api_key = request.headers.get("X-API-Key")
+    if api_key != API_KEY:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid API Key",
+        )
+
+
 @app.get("/create-client-infrastructure", status_code=201)
-def create_client_infrastructure(client_store: str = Query(..., description="Client store identifier")):
+def create_client_infrastructure(client_store: str = Query(..., description="Client store identifier"),api_key: str = Depends(verify_api_key)):
     try:
         validate_client_store(client_store)
         logger.info(f"Creating infrastructure for client_store: {client_store}")
@@ -33,7 +43,7 @@ def create_client_infrastructure(client_store: str = Query(..., description="Cli
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 @app.delete("/delete-infrastructure", status_code=200)
-def delete_client_infrastructure(client_store: str = Query(..., description="Client store identifier")):
+def delete_client_infrastructure(client_store: str = Query(..., description="Client store identifier"),api_key: str = Depends(verify_api_key)):
     try:
         validate_client_store(client_store)
         logger.info(f"Deleting infrastructure for client_store: {client_store}")
