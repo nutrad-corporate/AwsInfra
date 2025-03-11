@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 .vs/slnx.sqlite
 .vs/VSWorkspaceState.json
 .vs/Aws-Infra/CopilotIndices
 .vs/Aws-Infra/FileContentIndex
 .vs/Aws-Infra/v17
-=======
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/.vs
->>>>>>> 1f6f5feec89d6d52b43cec841d27fc8119cc1abb
+__pycache__

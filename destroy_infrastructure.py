@@ -16,8 +16,8 @@ MONGODB_URI = os.getenv("MONGODB_URI")
 client = MongoClient(MONGODB_URI)
 
 
-def delete_infrastructure():
-    database_name = input("Enter the client name: ")
+def delete_infrastructure(database_name):
+    #database_name = input("Enter the client name: ")
 
     if not database_name:
         print("Client name cannot be empty. Exiting...")

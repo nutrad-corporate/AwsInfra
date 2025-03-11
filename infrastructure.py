@@ -16,8 +16,9 @@ MONGODB_URI = os.getenv('MONGODB_URI')
 client = MongoClient(MONGODB_URI)
 
 # function to create the infrastructure
-def create_infrastructure():
-    username = input("Enter the client name (No special character is allowed): ").replace(" ", "").lower()
+def create_infrastructure(username):
+    # username = 
+    # username = input("Enter the client name (No special character is allowed): ").replace(" ", "").lower()
     # print(username)
     # return
     
