@@ -1,0 +1,9 @@
+ShopifyAPI
+python-dotenv
+requests
+pymongo
+boto3
+fastapi
+uvicorn
+motor
+awscli
