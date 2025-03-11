@@ -1,10 +1,10 @@
 **It is Important to install and Login in AWS CLI before you deploy the code**
 
-AWS account with an EC2 instance running a Linux-based OS (Ubuntu is commonly used).
+**AWS account with an EC2 instance running a Linux-based OS (Ubuntu is commonly used).
 Docker installed on the EC2 instance.
 Git installed on the EC2 instance.
 Your FastAPI code stored in a Git repository (e.g., GitHub, GitLab).
-AWS CLI set up on your local machine (if you want to interact with AWS from your terminal).
+AWS CLI set up on your local machine (if you want to interact with AWS from your terminal).**
 
 Steps:
 1. Set Up AWS EC2 Instance
