@@ -4,7 +4,7 @@ Step 1: Create an EC2 instance, by selecting OS as “Ubuntu” and using key-pa
 **Step 2: Open the terminal and connect to EC2 using the SSH:**
 ssh –i “C:\Users\<user-name>\.ssh\awsInfra.pem” ubuntu@<public_ip>
 
-e.g., ssh –i “C:\Users\Anuj Bisht\.ssh\awsInfra.pem” ubuntu@13.233.174.51
+e.g., ssh –i “C:\Users\<UserName>\.ssh\awsInfra.pem” ubuntu@13.233.174.51
 
 **Step 3: clone the git repository**
 e.g., git clone <git-repo-url>
