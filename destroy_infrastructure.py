@@ -66,7 +66,7 @@ def delete_infrastructure(database_name):
         client.drop_database(configuration["DATABASE_NAME"])
         
         # Close the MongoDB connection
-        client.close()
+        # client.close()
         
         print("\n**** Infrastructure deleted successfully ****")
 
